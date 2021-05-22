@@ -42,22 +42,16 @@
 			<div class="panel">
 				<div class="info">
 					<div class="images">
-						<img
-							:class="{ hide: !playerImgs.normal }"
-							src="./images/knight.png"
-						/>
+						<img src="./images/knight.png" />
 						<img
 							:class="{ hide: !playerImgs.attack }"
-							src="./images/attack-player.gif"
+							src="./images/attack.gif"
 						/>
 						<img
 							:class="{ hide: !playerImgs.special }"
-							src="./images/special-player.gif"
+							src="./images/special.gif"
 						/>
-						<img
-							:class="{ hide: !playerImgs.heal }"
-							src="./images/heal-player.gif"
-						/>
+						<img :class="{ hide: !playerImgs.heal }" src="./images/heal.gif" />
 					</div>
 					<div class="status">
 						<h1>Jogador</h1>
@@ -76,22 +70,16 @@
 			<div class="panel">
 				<div class="info">
 					<div class="images">
-						<img
-							:class="{ hide: !monsterImgs.normal }"
-							src="./images/dragon.png"
-						/>
+						<img src="./images/dragon.png" />
 						<img
 							:class="{ hide: !monsterImgs.attack }"
-							src="./images/attack-monster.gif"
+							src="./images/attack.gif"
 						/>
 						<img
 							:class="{ hide: !monsterImgs.special }"
-							src="./images/special-monster.gif"
+							src="./images/special.gif"
 						/>
-						<img
-							:class="{ hide: !monsterImgs.heal }"
-							src="./images/heal-monster.gif"
-						/>
+						<img :class="{ hide: !monsterImgs.heal }" src="./images/heal.gif" />
 					</div>
 					<div class="status">
 						<h1>Monstro</h1>
