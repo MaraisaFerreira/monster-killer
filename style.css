@@ -17,12 +17,11 @@ body {
 
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	font-family: 'Montserrat', sans-serif;
 }
 
 .panel {
-	margin-top: 20px;
 	margin-right: 20px;
 	padding: 20px;
 
