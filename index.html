@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Matador de Monstros</title>
+
+		<link rel="icon" type="image/png" href="./images/favicon.png" />
+
+		<!-- VueJS -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<div v-if="hasResult" class="panel result">
+				<h2 :class="{ lose: monsterLife > 0 }">{{ result }}</h2>
+			</div>
+			<button v-if="!running" class="start" @click="startGame">
+				Iniciar Jogo
+			</button>
+			<div v-if="running" class="controls">
+				<button class="attack" @click="attack">
+					<img src="./images/attack.png" title="Ataque" />
+				</button>
+				<button
+					class="special-attack"
+					@click="special"
+					:disabled="disabledSpecial"
+				>
+					<img src="./images/special.png" title="Ataque Especial" />
+				</button>
+				<button class="heal" @click="heal" :disabled="disabledHeal">
+					<img src="./images/heal.png" title="Curar" />
+				</button>
+				<button @click="running = false" class="giveup">
+					<img src="./images/give-up.png" title="Desistir" />
+				</button>
+			</div>
+			<div class="panel">
+				<div class="info">
+					<div class="images">
+						<img
+							:class="{ hide: !playerImgs.normal }"
+							src="./images/knight.png"
+						/>
+						<img
+							:class="{ hide: !playerImgs.attack }"
+							src="./images/attack-player.gif"
+						/>
+						<img
+							:class="{ hide: !playerImgs.special }"
+							src="./images/special-player.gif"
+						/>
+						<img
+							:class="{ hide: !playerImgs.heal }"
+							src="./images/heal-player.gif"
+						/>
+					</div>
+					<div class="status">
+						<h1>Jogador</h1>
+						<div class="life-bar">
+							<div
+								class="life"
+								:class="{ danger: playerLife <= 20 }"
+								:style='{ width: playerLife +"%" }'
+							></div>
+						</div>
+						<h3>{{ playerLife }}%</h3>
+						<div class="log">{{ playerLog }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel">
+				<div class="info">
+					<div class="images">
+						<img
+							:class="{ hide: !monsterImgs.normal }"
+							src="./images/dragon.png"
+						/>
+						<img
+							:class="{ hide: !monsterImgs.attack }"
+							src="./images/attack-monster.gif"
+						/>
+						<img
+							:class="{ hide: !monsterImgs.special }"
+							src="./images/special-monster.gif"
+						/>
+						<img
+							:class="{ hide: !monsterImgs.heal }"
+							src="./images/heal-monster.gif"
+						/>
+					</div>
+					<div class="status">
+						<h1>Monstro</h1>
+						<div class="life-bar">
+							<div
+								class="life"
+								:class="{ danger: monsterLife <= 20 }"
+								:style='{ width: monsterLife +"%"}'
+							></div>
+						</div>
+						<h3>{{ monsterLife }}%</h3>
+						<div class="log">{{ monsterLog }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- script -->
+		<script src="script.js"></script>
+	</body>
+</html>
